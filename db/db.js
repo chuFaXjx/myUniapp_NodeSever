@@ -1,7 +1,7 @@
 const mysql = require('mysql2');
 
 var connection = mysql.createConnection({
-    host  : 'localhost',
+    host  : '192.168.0.132',
     user  : 'root',
     password : '123456',
     database : 'uniappdatabase',
