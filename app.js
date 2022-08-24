@@ -24,7 +24,22 @@ app.use(delUserRouter.router);
 const wxApp = require('./routers/wxapp/wecharlogin/wxlogin')
 app.use(wxApp);
 
+// 注册微信小程序获取我的论坛路由
+const wxGetMy_Forum = require('./routers/wxapp/wx myForum/getForum')
+app.use(wxGetMy_Forum.router); 
+// 注册微信小程序添加我的论坛路由
+const wxAddMy_Fourm = require('./routers/wxapp/wx myForum/addForum')
+app.use(wxAddMy_Fourm.router);
 
+// 注册健康处方的路由
+const wxGetHealth_PrescriptionAll = require('./routers/wxapp/wx_Healthprescription/getprescription');
+app.use(wxGetHealth_PrescriptionAll.router);
+// 注册添加我的健康处方路由
+const wxAdd_MyHealth_prescription =require('./routers/wxapp/wx_Healthprescription/add my_prescription');
+app.use(wxAdd_MyHealth_prescription.router)
+// 注册删除我的健康处方路由
+const wxDel_MyHealth_presscription = require('./routers/wxapp/wx_Healthprescription/del my_prescription');
+app.use(wxDel_MyHealth_presscription.router)
 app.listen(3000, () => {
 	console.log("http://localhost:3000");
 });
