@@ -3,9 +3,10 @@ const router = express.Router();
 const connection = require('../../../db/db');
 // 添加论坛功能
 router.post('/addforum', (req, res) => {
-    const { name, introduction, imgUrl } = req.body
-    const data = [name,introduction,imgUrl]
-       
+    let { name, introduction, imgUrl } = req.body
+    const ImgFile = `http://localhost:3000/${imgUrl}`
+    const data = [name,introduction,ImgFile]
+      
     
     if (name == "") {
         res.send({

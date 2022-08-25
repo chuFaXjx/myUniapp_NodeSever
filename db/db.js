@@ -7,6 +7,5 @@ var connection = mysql.createConnection({
     database : 'uniappdatabase',
     port:'3306'
 }) 
-
+ 
 module.exports = connection;
-

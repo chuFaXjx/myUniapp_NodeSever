@@ -5,7 +5,7 @@ const connection = require('../../../db/db');
 const md5 = require('../../../util/md5');
 const {verifyToken}  = require("../../../util/token")
 
-router.post('/edituser',verifyToken, async (req, res) => {
+router.post('/edituser',verifyToken,  (req, res) => {
     const  id  = req.body.id;
     const  username  = req.body.username;
     const  password = req.body.password;
@@ -19,7 +19,7 @@ router.post('/edituser',verifyToken, async (req, res) => {
         ))
     }else{
         const selectMysql = 'select * from user_name where id=?  ;'
-        connection.query(selectMysql, id, (request, result) => {
+       connection.query(selectMysql, id, (request, result) => {
         console.log(result);
         if(result.length>0){
             const eidtMysql = 'update user_name set username=?,password=? where id=?;'
