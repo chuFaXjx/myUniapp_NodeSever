@@ -2,10 +2,9 @@ const Login = require('../../../db/db');
 const express = require('express');
 const router = express.Router();
 const connection = require('../../../db/db');
-const {verifyToken}  = require('../../../util/token')
 // 删除功能
-router.delete('/deluser', verifyToken,(req, res) => {
-    const selectMysql = 'select * from user_name where id = ? ;'
+router.delete('/delHealthArchives',(req, res) => {
+    const selectMysql = 'select * from health_archives where id = ? ;'
     const id = req.query.id;
     if(id==''){
         res.send({
@@ -23,7 +22,7 @@ router.delete('/deluser', verifyToken,(req, res) => {
                     data:{}
                 })
             }else{
-                const delMysql = 'delete from user_name where id = ?;'
+                const delMysql = 'delete from health_archives where id = ?;'
                 connection.query(delMysql,id,(re,rs)=>{
                     if(id){
                         res.send({

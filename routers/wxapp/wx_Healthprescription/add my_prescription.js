@@ -33,11 +33,6 @@ router.post('/addMyprescription', (req, res) => {
             data: {},
         })
         }
-        // res.send({
-        //     code: 0,
-        //     msg: '获取数据成功',
-        //     data: {},
-        // })
     })
     }
     

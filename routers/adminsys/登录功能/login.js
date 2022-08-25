@@ -23,7 +23,7 @@ router.post('/api/login', (req, res) => {
         const selectMysql = 'select * from user_name where username = ? and password = ?  ;'
         const data =[username,password]
         console.log("data",data);
-        connection.query(selectMysql, data,(request, result) => {
+        connection.query(selectMysql, data,  (request, result) => {
         console.log(result);
         if(result.length>0){
             if (result[0].username === username && result[0].password === password) {
