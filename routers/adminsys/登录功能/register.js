@@ -41,7 +41,6 @@ router.post('/api/register', (req, res) => {
                     }
                 )))
             }
-    
         })
     }
 })

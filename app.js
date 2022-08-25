@@ -42,9 +42,6 @@ app.use(wxDel_MyHealth_presscription.router);
 //注册个人中心/新增地址路由
 const AddAdress = require("./routers/roleCenter/addAdress");
 app.use(AddAdress.router);
-// 注册我的健康出发接口
-const wxDel_MyHealth_presscription = require('./routers/wxapp/wx_Healthprescription/del my_prescription');
-app.use(wxDel_MyHealth_presscription.router)
 // 注册兑换积分的路由
 const wxupload_Exchange = require('./routers/wxapp/wx_exchange/wx_exchange');
 app.use(wxupload_Exchange.router);
