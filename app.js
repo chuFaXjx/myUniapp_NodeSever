@@ -80,6 +80,11 @@ app.use(wx_getBusiness_card.router)
 const wx_Business_card = require('./routers/wxapp/wx_business_card/wx_business_card');
 app.use(wx_Business_card.router);
 
-app.listen(3000, () => {
-  console.log("http://localhost:3000");
+// app.listen(3000, () => {
+//   console.log("http://localhost:3000");
+// });
+// APP_PORT
+
+app.listen(3309, () => {
+	console.log(`服务器启动成功：http://192.168.0.132:3309`);
 });
