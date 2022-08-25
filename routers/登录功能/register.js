@@ -1,7 +1,7 @@
 const express = require('express');
-const Login = require('../../db/db');
+const Login = require('../../data/db');
 const router = express.Router();
-const connection = require('../../db/db');
+const connection = require('../../data/db');
 // 注册功能
 router.post('/api/register', (req, res) => {
     const username = req.body.username;

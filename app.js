@@ -18,7 +18,6 @@ app.use(router)
 const eidtUserRouter = require('./routers/登录功能/editusers');
 app.use(eidtUserRouter.router); 
 // APP_PORT
-app.listen(3008, () => {
-	console.log(`服务器启动成功：http://localhost:3008`);
+app.listen(3309, () => {
+	console.log(`服务器启动成功：http://192.168.0.132:3309`);
 });
-

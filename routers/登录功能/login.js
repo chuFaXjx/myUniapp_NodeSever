@@ -1,7 +1,7 @@
-const Login = require('../../db/db');
+const Login = require('../../data/db');
 const express = require('express');
 const router = express.Router();
-const connection = require('../../db/db');
+const connection = require('../../data/db');
 const jwt = require('jsonwebtoken')
 const secretKey = 'abcdefg ^_^'
 let Token = ''

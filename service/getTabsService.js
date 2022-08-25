@@ -1,16 +1,10 @@
-const connections = require("../db/db")
+const connections = require("../data/db")
 class tabsService{
-async getTablist2(id,tab){
-    const statement = "insert into `tabs` (id,tab) values (?,?)"
-    connections.query(statement, (id,tab), function (err, results, fields) {
-        if (err) {
-
-        } else {
-            res.status(200).send({
-                msg: '添加成功'
-            })
-        }
-    })
+ async getTablist2(tab){
+    console.log(tab);
+    const statement = "insert into `tabs` (tab) values (?)"
+    const dbRes = await connections.execute(statement, [tab])
+    console.log('执行结果：', dbRes);
 }
 }
 module.exports=new tabsService()

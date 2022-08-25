@@ -2,10 +2,10 @@
 const jwt = require("jsonwebtoken");
 const { getInfobycompany } = require('../service/companyservice')
 const { TOKEN_SECRETKEY } = require("../config");
-const verifyGetCompanyname = async(req, res, next) => {
+const verifyGetCompanyname = (req, res, next) => {
     //从数据库查询是否有公司集团信息
     try {
-        const dbRes=await getInfobycompany(compamyname)
+        const dbRes= getInfobycompany(compamyname)
         if (dbRes.length !== 0) {
             res.send({
                 code: 0,
@@ -23,7 +23,7 @@ const verifyGetCompanyname = async(req, res, next) => {
     next()
 }
 // 增加数据中间件
-const verifyAdd = async (req, res, next) => {
+const verifyAdd =  (req, res, next) => {
     // 1、获取到前端传过来的数据
     // 2、判断数据是否存在
     // 3、判断该公司集团是否存在
@@ -37,7 +37,7 @@ const verifyAdd = async (req, res, next) => {
       return;
     }
   
-    const dbRes = await getInfobycompany(compamyname);
+    const dbRes = getInfobycompany(compamyname);
     if (dbRes.length === 0) {
       res.status(401).json({
         code: -1,
@@ -64,6 +64,7 @@ const verifyToken = (req, res, next) => {
   try {
     // 解析Token
     const decoded = jwt.verify(token, TOKEN_SECRETKEY);
+    console.log('qqq',decoded);
     req.userInfo = decoded;
     next();
   } catch (error) {
