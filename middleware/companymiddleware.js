@@ -1,7 +1,7 @@
 // 处理用户请求到响应的过程中的逻辑判断
 const jwt = require("jsonwebtoken");
 const { getInfobycompany } = require('../service/companyservice')
-const { TOKEN_SECRETKEY } = require("../config");
+const { TOKEN_SECRETKEY } = require("../data/config");
 const verifyGetCompanyname = (req, res, next) => {
     //从数据库查询是否有公司集团信息
     try {

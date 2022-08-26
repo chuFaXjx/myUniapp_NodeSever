@@ -1,4 +1,4 @@
-const { APP_PORT } = require('../config')
+const { APP_PORT } = require('../data/config')
 const {
  getnewList
 } = require("../service/getzixunmsglist");
