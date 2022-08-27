@@ -6,7 +6,6 @@ router.post('/addforum', (req, res) => {
     let { name, introduction, imgUrl } = req.body
     const ImgFile = `http://localhost:3000/${imgUrl}`
     const data = [name,introduction,ImgFile]
-      
     
     if (name == "") {
         res.send({

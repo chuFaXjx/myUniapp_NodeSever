@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const connection = require('../../../db/db');
-// 添加论坛功能
+// 积分兑换
 router.post('/uploadExchange', (req, res) => {
     const { realName, phone, wxUser, alipayUser, points, description } = req.body
     const data = [realName, phone, wxUser, alipayUser, points, description]

@@ -43,13 +43,15 @@ app.use(wxAdd_MyHealth_prescription.router);
 // 注册删除我的健康处方路由
 const wxDel_MyHealth_presscription = require("./routers/wxapp/wx_Healthprescription/del my_prescription");
 app.use(wxDel_MyHealth_presscription.router);
-//注册个人中心/新增地址路由
-const AddAdress = require("./routers/roleCenter/addAdress");
+//注册个人中心/获取省份路由
+const AddAdress = require("./routers/roleCenter/getSHENG");
 app.use(AddAdress.router);
+// 注册个人中心/地址管理路由
+const getAdress = require("./routers/roleCenter/addAdress");
+app.use(getAdress.router);
 // 注册兑换积分的路由
 const wxupload_Exchange = require("./routers/wxapp/wx_exchange/wx_exchange");
 app.use(wxupload_Exchange.router);
-
 // 注册添加基础资料的路由
 const wxbasic_Information = require("./routers/wxapp/wx_Basic_Information/wx_Basic_Information");
 app.use(wxbasic_Information.router);
