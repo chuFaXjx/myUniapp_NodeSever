@@ -1,12 +1,12 @@
 const mysql = require("mysql2");
 
 var connection = mysql.createConnection({
-  host: "192.168.0.132",
-  //   host: "localhost",
+  // host: "192.168.0.132",
+    host: "localhost",
   user: "root",
-  password: "123456",
+  password: "mysqlzhu",
   //   database: "xjx",
-  database: "uniappdatabase",
+  database: "db",
   port: "3306",
 });
 

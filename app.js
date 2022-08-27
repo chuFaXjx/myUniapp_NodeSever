@@ -86,6 +86,22 @@ app.use(wx_Business_card.router);
 // app.use(require('./routers/shouye/简介轮播图/doctorbanner'))
 app.use(router);
 // const a = require('./routers/shouye/简介轮播图/doctorbanner')
+//注册专家说添加
+const addExperts=require("./routers/experts/expertsArticles/addExperts");
+app.use(addExperts.router);
+// 注册专家说查看
+const getExperts=require("./routers/experts/expertsArticles/getExperts");
+app.use(getExperts.router);
+// 注册专家说疗法专栏添加文章
+const addtherapists=require("./routers/experts/therapists/addtherapists");
+app.use(addtherapists.router);
+// 注册专家说疗法专栏获取所有文章
+const gettherapistsAll=require("./routers/experts/therapists/gettherapistsAll");
+app.use(gettherapistsAll.router);
+// 注册专家说疗法专栏获取一篇文章
+const gettherapists=require("./routers/experts/therapists/gettherapists");
+app.use(gettherapists.router);
+
 app.listen(3000, () => {
   console.log("http://localhost:3000");
 });
