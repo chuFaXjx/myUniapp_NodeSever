@@ -15,33 +15,19 @@ router.post('/api/register', (req, res) => {
                 data: {}
             }
         ))
+        console.log(username,password);
     } else {
-        const selectMysql = `select * from user_name WHERE username=?;`
-        connection.query(selectMysql, username, (request, result) => {
-            console.log("result", result);
-            if (result.length > 0) {
-                res.send(JSON.stringify(
-                    {
-                        status: -1,
-                        massage: "用户已存在",
-                        code: '404',
-                    }
-                ))
-            } else {
-                const statement = `insert into user_name (username, password) values (?, ?);`;
-                const result = connection.execute(statement, [
-                    username,
-                    md5(password),
-                ]);
-                res.send((JSON.stringify(
-                    {
-                        code: 200,
-                        massage: "添加成功",
-                        data: {}
-                    }
-                )))
-            }
-    
+        const data = [username, md5(password)];
+        const statement = `insert into user_name (username, password) values (?, ?);`;
+        connection.query(statement, data, () => {
+            console.log(111);
+            res.send((JSON.stringify(
+                {
+                    code: 200,
+                    massage: "添加成功",
+                    data: {}
+                }
+            )))
         })
     }
 })

@@ -11,6 +11,10 @@ app.use(loginRouter.router)
 const registerRouter = require('./routers/adminsys/登录功能/register');
 app.use(registerRouter.router)
 
+// 注册获取所有角色路由
+const getUserRouter = require('./routers/adminsys/登录功能/getuser');
+app.use(getUserRouter.router);
+
 //编辑角色密码和账号的注册路由
 const eidtUserRouter = require('./routers/adminsys/登录功能/editusers');
 app.use(eidtUserRouter.router); 

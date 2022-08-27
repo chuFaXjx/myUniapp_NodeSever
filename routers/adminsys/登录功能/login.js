@@ -22,20 +22,21 @@ router.post('/api/login', (req, res) => {
     }else{
         const selectMysql = 'select * from user_name where username = ? and password = ?  ;'
         const data =[username,password]
-        console.log("data",data);
+        // console.log("data",data);
         connection.query(selectMysql, data,  (request, result) => {
-        console.log(result);
+        // console.log(result);
         if(result.length>0){
             if (result[0].username === username && result[0].password === password) {
                 res.send(JSON.stringify(
                     {
                         status: 0,
                         massage: "登入成功",
-                        code: '200',
+                        code: 200,
                         data: {
                             username: username,
+                            token: jwt.sign({ username,id}, TOKEN_SECRETKEY, { expiresIn: '24h' }),
                         },
-                        token: jwt.sign({ username,id}, TOKEN_SECRETKEY, { expiresIn: '24h' }),
+                        
                     }
                 ));
             }

@@ -4,7 +4,7 @@ const router = express.Router();
 const connection = require('../../../db/db');
 const {verifyToken}  = require('../../../util/token')
 // 删除功能
-router.delete('/deluser', verifyToken,(req, res) => {
+router.delete('/api/deluser', verifyToken,(req, res) => {
     const selectMysql = 'select * from user_name where id = ? ;'
     const id = req.query.id;
     if(id==''){
@@ -27,12 +27,14 @@ router.delete('/deluser', verifyToken,(req, res) => {
                 connection.query(delMysql,id,(re,rs)=>{
                     if(id){
                         res.send({
+                            code:200,
                             status:1,
                             message:"删除成功",
                             data:{}
                         })
                     }else{
                         res.send({
+                            code:404,
                             status:-1,
                             message:'删除失败',
                             data:{}
