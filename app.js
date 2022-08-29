@@ -1,6 +1,7 @@
 const express = require('express');
+var cors = require('cors')
 const app = express();
-
+app.use(cors());
 app.use(express.json()); // 告诉express能够解析 application/json类型的请求参数
 app.use(express.urlencoded({extended: false}));// 告诉express能够解析 表单类型的请求参数 application/x-www-form-urlencoded
 

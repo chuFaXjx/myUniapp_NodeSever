@@ -14,24 +14,24 @@ router.post('/BusinessCard', (req, res) => {
         const selectMysql = 'select * from business_card where id = ?;'
         connection.query(selectMysql, id, (request, result) => {
             console.log(result);
-            if (result[0].realName==""||result[0].phone==""||result[0].company==""||result[0].position=="") {
-                const data = [realName,phone,company,position,other,description]
+            if (result[0].realName == "" || result[0].phone == "" || result[0].company == "" || result[0].position == "") {
+                const data = [realName, phone, company, position, other, description]
                 const addMysql = 'insert into business_card (realName, phone,company,position,other,description) values (?, ?, ?,?, ?, ?)';
-                connection.query(addMysql,data,()=>{
+                connection.query(addMysql, data, () => {
                     res.send(JSON.stringify({
-                        code:200,
-                        msg:"添加成功",
-                        data:{},
+                        code: 200,
+                        msg: "添加成功",
+                        data: {},
                     }))
                 })
-            }else{
+            } else {
                 const eidtMysql = 'update business_card set realName=?,phone=?,company=?,position=?,other=?,description=? where id=?;'
-                const data = [realName,phone,company,position,other,description,id];
-                connection.query(eidtMysql,data,()=>{
+                const data = [realName, phone, company, position, other, description, id];
+                connection.query(eidtMysql, data, () => {
                     res.send(JSON.stringify({
-                        code:200,
-                        msg:"修改成功",
-                        data:{},
+                        code: 200,
+                        msg: "修改成功",
+                        data: {},
                     }))
                 })
             }
